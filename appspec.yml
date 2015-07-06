@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ec2-user/baasbox
+hooks:
+  BeforeInstall:
+    - location: deploy_scripts/BeforeInstall.sh
+      timeout: 3000
+      runas: root
+  AfterInstall:
+    - location: deploy_scripts/AfterInstall.sh
+      timeout: 3000
+      runas: root
+  ApplicationStart:
+    - location: deploy_scripts/ApplicationStart.sh
+      timeout: 3000
+      runas: root
+  ApplicationStop:
+    - location: deploy_scripts/ApplicationStop.sh
+      timeout: 3000
+      runas: root
